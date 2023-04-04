@@ -56,5 +56,5 @@ public:
         }
         cout << endl;
     }
-};
+}
 
