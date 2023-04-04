@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 #define MAX_SIZE 100 
 
 using namespace std;
@@ -56,5 +57,37 @@ public:
         }
         cout << endl;
     }
-}
+};
 
+
+int main() {
+    Stack s;
+
+    auto start = chrono::high_resolution_clock::now();
+    s.push(10);
+    s.push(5);
+    s.push(11);
+    s.push(15);
+    s.push(23);
+    s.push(6);
+    s.push(18);
+    s.push(20);
+    s.push(17);
+    s.display();
+    s.pop();
+    s.pop();
+    s.pop();
+    s.pop();
+    s.pop();
+    s.display();
+    s.push(4);
+    s.push(30);
+    s.push(3);
+    s.push(1);
+    s.display();
+    auto end = chrono::high_resolution_clock::now();
+    auto duration = chrono::duration_cast<chrono::microseconds>(end - start);
+    cout << "Time taken for specific push operations using array: " << duration.count() << " microseconds" << endl;
+    
+    return 0;
+}
